@@ -45,11 +45,23 @@ public class RulesFragment extends Fragment {
 
             @Override
             public void onDeleteClicked(Rule rule) {
-                if (!rule.active) {
-                    viewModel.deleteRuleFirebase(rule);
-                } else {
-                    Toast.makeText(requireContext(), "A szabály aktív, nem törölhető!", Toast.LENGTH_SHORT).show();
+                try {
+                    for (Rule r : viewModel.getRuleList().getValue()) {
+                        if (r.id.equals(rule.id)) {
+                            if (!r.active) {
+                                viewModel.deleteRule(rule);
+                                viewModel.deleteRuleFirebase(rule);
+                                break;
+                            } else {
+                                Toast.makeText(requireContext(), "A szabály aktív, nem törölhető!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+                }catch(NullPointerException e){
+                    Toast.makeText(requireContext(), "Hiba történt a szabály törlésénél", Toast.LENGTH_SHORT).show();
                 }
+
+
             }
             @Override
             public void onRuleClicked(Rule rule) {
@@ -77,7 +89,5 @@ public class RulesFragment extends Fragment {
             viewModel.fetchRulesOnce();
         });
         }
-
-
-    }
+}
 

@@ -70,10 +70,25 @@ public class SharedViewModel extends ViewModel {
         current.add(rule);
         ruleList.setValue(current);
     }
-
+    public void deleteRule(Rule rule) {
+        List<Rule> current = ruleList.getValue();
+        assert current != null;
+        current.remove(rule);
+        ruleList.setValue(current);
+    }
+    public boolean duplicateCheck(Rule rule) {
+        List<Rule> current = ruleList.getValue();
+        assert current != null;
+        for (Rule r : current) {
+            if (r.input1 == rule.input1 && r.input2 == rule.input2 && r.input3 == rule.input3 && r.input4 == rule.input4){
+                return false;
+            }
+        }
+        return true;
+    }
     public void initTestRulesIfEmpty() {
         if (ruleList.getValue().isEmpty()) {
-            addRule(new Rule("qwerty",0, 0, 0, 0, 0, 0,0, 0, 0, 0, true));
+            addRule(new Rule(0, 0, 0, 0, 0, 0,0, 0, 0, 0, true));
         }
     }
 
@@ -135,6 +150,12 @@ public class SharedViewModel extends ViewModel {
                         .addOnFailureListener(e -> Log.e("SharedViewModel", "Szinkronizálási hiba: ", e));
             }
         }
+    }
+    public void activate(){
+        firebaseRef.child("Activity").setValue(true);
+    }
+    public void deactivate(){
+        firebaseRef.child("Activity").setValue(false);
     }
 
     public void toggleOutput(int index, boolean newState) {

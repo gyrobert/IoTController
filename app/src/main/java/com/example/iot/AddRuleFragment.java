@@ -69,6 +69,11 @@ public class AddRuleFragment extends Fragment {
                         inputText[i].requestFocus();
                         return;
                     }
+                    if (Integer.parseInt(text) <=0 || Integer.parseInt(text) >=33){
+                        inputText[i].setError("Érvénytelen szám, 0 és 33 között kell legyen");
+                        inputText[i].requestFocus();
+                        return;
+                    }
 
                     try {
                         inputs[i + 4] = Integer.parseInt(text);
@@ -85,18 +90,25 @@ public class AddRuleFragment extends Fragment {
                 }
 
                 // Új szabály létrehozása
-                Rule newRule = new Rule("qwerty",inputs[0], inputs[1], inputs[2], inputs[3], inputs[4], inputs[5], outputs[0], outputs[1], outputs[2], outputs[3], true);
+                Rule newRule = new Rule(inputs[0], inputs[1], inputs[2], inputs[3], inputs[4], inputs[5], outputs[0], outputs[1], outputs[2], outputs[3], true);
 
-                // Hozzáadás ViewModel-hez
-                viewModel.addRule(newRule);
-                viewModel.addRuleFirebase(newRule);
+                if (!viewModel.duplicateCheck(newRule)) {
+                    Toast.makeText(getContext(), "Ez a szabály már létezik", Toast.LENGTH_SHORT).show();
+                    return;
+                }else {
+                    try {
+                        viewModel.addRule(newRule);
+                    }catch(Exception e){
+                        Toast.makeText(getContext(), "Hiba történt a szabály mentése során", Toast.LENGTH_SHORT).show();
+                    }
+                    try {
+                        viewModel.addRuleFirebase(newRule);
+                    }catch(Exception e){
+                        Toast.makeText(getContext(), "Hiba történt a szabály mentése során", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
-//                try {
-//                    viewModel.addRuleFirebase(newRule);
-//                }
-//                catch (Exception e){
-//                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-//                }
+//
 
 
 

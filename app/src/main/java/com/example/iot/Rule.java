@@ -29,8 +29,7 @@ public class Rule {
         active = true;
     }
 
-    public Rule( String id,int input1, int input2, int input3, int input4, int input5, int input6, int output1, int output2, int output3, int output4, boolean active) {
-       this.id=id;
+    public Rule(int input1, int input2, int input3, int input4, int input5, int input6, int output1, int output2, int output3, int output4, boolean active) {
         this.input1=input1;
        this.input2=input2;
        this.input3=input3;

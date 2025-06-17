@@ -29,6 +29,7 @@ public class MainFragment extends Fragment {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+
         });
 
         inputViews[0] = root.findViewById(R.id.input1);
@@ -45,6 +46,8 @@ public class MainFragment extends Fragment {
 
 
         viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+
+        viewModel.activate();
 
         viewModel.getIotData().observe(getViewLifecycleOwner(), iot -> {
             if (iot != null) {
@@ -76,5 +79,11 @@ public class MainFragment extends Fragment {
 
     private void updateButtonLabel(Button button, boolean state, String baseName) {
         button.setText(state ? baseName + " (Off)" : baseName + " (On)");
+    }
+
+    @Override
+    public void onDestroy() {
+        viewModel.deactivate();
+        super.onDestroy();
     }
 }
