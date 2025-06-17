@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.iot.MainFragment"
+        android:label="Főképernyő" />
+
+    <fragment
+        android:id="@+id/rulesFragment"
+        android:name="com.example.iot.RulesFragment"
+        android:label="Szabályok" />
+
+    <fragment
+        android:id="@+id/addRuleFragment"
+        android:name="com.example.iot.AddRuleFragment"
+        android:label="Új szabály" />
+    <fragment
+        android:id="@+id/editRuleFragment"
+        android:name="com.example.iot.EditFragment"
+        android:label="EditRuleFragment" />
+</navigation>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditFragment"
+    android:orientation="vertical"
+    >
+
+    <EditText
+        android:id="@+id/editInput5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="0"
+        android:hint="@string/input5"
+        android:inputType="number"
+        android:textColorHint="#546E7A"
+        tools:ignore="VisualLintTextFieldSize" />
+
+    <EditText
+        android:id="@+id/editInput6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="0"
+        android:hint="@string/input6"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textColorHint="#546E7A"
+        tools:ignore="VisualLintTextFieldSize" />
+    <Button
+        android:id="@+id/btnSave"
+        android:text="@string/mentes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        tools:ignore="VisualLintButtonSize" />
+
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mainFragment"
+        android:icon="@drawable/ic_home"
+        android:title="Fő"/>
+    <item
+        android:id="@+id/rulesFragment"
+        android:icon="@drawable/ic_list"
+        android:title="Szabályok"/>
+    <item
+        android:id="@+id/addRuleFragment"
+        android:icon="@drawable/ic_add"
+        android:title="Új"/>
+</menu>

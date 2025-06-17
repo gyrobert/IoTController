@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bemenetek"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/checkbox_input1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/input1" />
+
+        <CheckBox
+            android:id="@+id/checkbox_input2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/input2" />
+
+        <CheckBox
+            android:id="@+id/checkbox_input3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/input3" />
+
+        <CheckBox
+            android:id="@+id/checkbox_input4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/input4" />
+
+        <EditText
+            android:id="@+id/edit_input5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="0"
+            android:hint="@string/input5"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:textColorHint="#546E7A"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <EditText
+            android:id="@+id/edit_input6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="0"
+            android:hint="@string/input6"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:textColorHint="#546E7A"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kimenetek"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <CheckBox
+            android:id="@+id/checkbox_output1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/output1" />
+
+        <CheckBox
+            android:id="@+id/checkbox_output2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/output2" />
+
+        <CheckBox
+            android:id="@+id/checkbox_output3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/output3" />
+
+        <CheckBox
+            android:id="@+id/checkbox_output4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/output4" />
+
+        <Button
+            android:id="@+id/btn_save_rule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mentes"
+            android:layout_marginTop="24dp"
+            tools:ignore="VisualLintButtonSize" />
+    </LinearLayout>
+</ScrollView>
