@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.core.graphics.Insets;
@@ -17,6 +18,7 @@ public class MainFragment extends Fragment {
 
     private final TextView[] inputViews = new TextView[6];
     private final Button[] outputButtons = new Button[4];
+    private Switch automationSwitch;
 
     private SharedViewModel viewModel;
 
@@ -44,10 +46,12 @@ public class MainFragment extends Fragment {
         outputButtons[2] = root.findViewById(R.id.output3);
         outputButtons[3] = root.findViewById(R.id.output4);
 
+        automationSwitch = root.findViewById(R.id.switch_automation);
+
 
         viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
-        viewModel.activate();
+
 
         viewModel.getIotData().observe(getViewLifecycleOwner(), iot -> {
             if (iot != null) {
@@ -63,6 +67,11 @@ public class MainFragment extends Fragment {
                 updateButtonLabel(outputButtons[2], iot.Output3, "Output3");
                 updateButtonLabel(outputButtons[3], iot.Output4, "Output4");
             }
+        });
+
+        automationSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+           automationSwitch.setText(isChecked ? "Automata" : "Manuális");
+            viewModel.setAutomationMode(isChecked);
         });
 
         for (int i = 0; i < outputButtons.length; i++) {
@@ -82,8 +91,14 @@ public class MainFragment extends Fragment {
     }
 
     @Override
-    public void onDestroy() {
+    public void onResume() {
+        super.onResume();
+        viewModel.activate();
+    }
+
+    @Override
+    public void onPause() {
         viewModel.deactivate();
-        super.onDestroy();
+        super.onPause();
     }
 }

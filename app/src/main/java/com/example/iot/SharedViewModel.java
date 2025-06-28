@@ -43,7 +43,6 @@ public class SharedViewModel extends ViewModel {
         });
 
         //szabalyok
-        initTestRulesIfEmpty();
         fetchRulesOnce();
     }
 
@@ -158,6 +157,9 @@ public class SharedViewModel extends ViewModel {
         firebaseRef.child("Activity").setValue(false);
     }
 
+    public void setAutomationMode(boolean automationMode) {
+        firebaseRef.child("Mode").setValue(automationMode);
+    }
     public void toggleOutput(int index, boolean newState) {
         firebaseRef.child("Output" + (index + 1)).setValue(newState);
     }

@@ -69,7 +69,7 @@ public class AddRuleFragment extends Fragment {
                         inputText[i].requestFocus();
                         return;
                     }
-                    if (Integer.parseInt(text) <=0 || Integer.parseInt(text) >=33){
+                    if (Integer.parseInt(text) <0 || Integer.parseInt(text) >33){
                         inputText[i].setError("Érvénytelen szám, 0 és 33 között kell legyen");
                         inputText[i].requestFocus();
                         return;

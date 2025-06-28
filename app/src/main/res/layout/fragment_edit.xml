@@ -1,38 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditFragment"
-    android:orientation="vertical"
-    >
+    tools:context=".EditFragment">
 
-    <EditText
-        android:id="@+id/editInput5"
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autofillHints="0"
-        android:hint="@string/input5"
-        android:inputType="number"
-        android:textColorHint="#546E7A"
-        tools:ignore="VisualLintTextFieldSize" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/editInput6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autofillHints="0"
-        android:hint="@string/input6"
-        android:inputType="number"
-        android:minHeight="48dp"
-        android:textColorHint="#546E7A"
-        tools:ignore="VisualLintTextFieldSize" />
-    <Button
-        android:id="@+id/btnSave"
-        android:text="@string/mentes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        tools:ignore="VisualLintButtonSize" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/editIdText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4 digitális input beállítása"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="16dp"
+            tools:ignore="HardcodedText" />
+
+
+        <EditText
+            android:id="@+id/editInput5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/input5"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:textColorHint="#546E7A"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <EditText
+            android:id="@+id/editInput6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/input6"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:textColorHint="#546E7A"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <CheckBox
+            android:id="@+id/checkboxOutput1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/output1" />
+
+        <CheckBox
+            android:id="@+id/checkboxOutput2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/output2" />
+
+        <CheckBox
+            android:id="@+id/checkboxOutput3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/output3" />
+
+        <CheckBox
+            android:id="@+id/checkboxOutput4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/output4" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:text="@string/mentes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            tools:ignore="VisualLintButtonSize" />
+
+    </LinearLayout>
+</ScrollView>
