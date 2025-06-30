@@ -47,7 +47,7 @@ public class AddRuleFragment extends Fragment {
 
         Button saveButton = view.findViewById(R.id.btn_save_rule);
 
-        // ViewModel példány beszerzése
+
         viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
         saveButton.setOnClickListener(v -> {
@@ -55,12 +55,12 @@ public class AddRuleFragment extends Fragment {
             int[] outputs = new int[4];
 
             try {
-                // 1–4: checkbox bemenetek
+
                 for (int i = 0; i < 4; i++) {
                     inputs[i] = inputCheckboxes[i].isChecked() ? 1 : 0;
                 }
 
-                // 5–6: edittext bemenetek (számként)
+
                 for (int i = 0; i < 2; i++) {
                     String text = inputText[i].getText().toString().trim();
 
@@ -84,12 +84,12 @@ public class AddRuleFragment extends Fragment {
                     }
                 }
 
-                // Kimenetek
+
                 for (int i = 0; i < 4; i++) {
                     outputs[i] = outputCheckboxes[i].isChecked() ? 1 : 0;
                 }
 
-                // Új szabály létrehozása
+
                 Rule newRule = new Rule(inputs[0], inputs[1], inputs[2], inputs[3], inputs[4], inputs[5], outputs[0], outputs[1], outputs[2], outputs[3], true);
 
                 if (!viewModel.duplicateCheck(newRule)) {
