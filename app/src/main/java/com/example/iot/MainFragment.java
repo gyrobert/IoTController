@@ -72,6 +72,11 @@ public class MainFragment extends Fragment {
         automationSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
            automationSwitch.setText(isChecked ? "Automata" : "Manuális");
             viewModel.setAutomationMode(isChecked);
+
+           outputButtons[0].setEnabled(!isChecked);
+           outputButtons[1].setEnabled(!isChecked);
+           outputButtons[2].setEnabled(!isChecked);
+           outputButtons[3].setEnabled(!isChecked);
         });
 
         for (int i = 0; i < outputButtons.length; i++) {
