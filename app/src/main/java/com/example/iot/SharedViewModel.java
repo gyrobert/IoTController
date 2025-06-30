@@ -96,7 +96,7 @@ public class SharedViewModel extends ViewModel {
         if (firebaseId != null) {
             rule.id = firebaseId;
             rulesRef.child(firebaseId).setValue(rule)
-                    .addOnSuccessListener(unused -> fetchRulesOnce()); // újratöltés csak akkor, ha sikeres
+                    .addOnSuccessListener(unused -> fetchRulesOnce());
         }
     }
 

@@ -83,7 +83,7 @@ public class MainFragment extends Fragment {
             int index = i;
             outputButtons[i].setOnClickListener(view -> {
                 String label = outputButtons[index].getText().toString();
-                boolean isCurrentlyOn = label.contains("Off");
+                boolean isCurrentlyOn = label.contains("On");
                 viewModel.toggleOutput(index, !isCurrentlyOn);
             });
         }
@@ -92,7 +92,7 @@ public class MainFragment extends Fragment {
     }
 
     private void updateButtonLabel(Button button, boolean state, String baseName) {
-        button.setText(state ? baseName + " (Off)" : baseName + " (On)");
+        button.setText(state ? baseName + " (On)" : baseName + " (Off)");
     }
 
     @Override

@@ -78,9 +78,6 @@ public class RulesFragment extends Fragment {
 
         viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
-//        if (Objects.requireNonNull(viewModel.getRuleList().getValue()).isEmpty()) {
-//            viewModel.initTestRulesIfEmpty();
-//        }
 
         viewModel.getRuleList().observe(getViewLifecycleOwner(), rules -> ruleAdapter.updateList(rules));
         Button szinkronizal = view.findViewById(R.id.btnSync);
